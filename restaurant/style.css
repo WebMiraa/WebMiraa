@@ -1,0 +1,959 @@
+/* ================================
+   RESET
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #11100e;
+    color: #f4efe6;
+    font-family: "Inter", sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* ================================
+   VARIABLES
+================================ */
+
+:root {
+    --bg: #11100e;
+    --cream: #f4efe6;
+    --muted: #aaa399;
+    --gold: #c9a86a;
+    --border: rgba(244, 239, 230, 0.15);
+}
+
+
+/* ================================
+   NAVBAR
+================================ */
+
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 90px;
+
+    padding: 0 6vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 10;
+
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+
+    animation: navReveal 1s ease forwards;
+}
+
+.logo {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.logo span,
+.footer-logo span {
+    color: var(--gold);
+}
+
+.navbar nav {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar nav a {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: #d5d0c7;
+
+    transition: 0.3s ease;
+}
+
+.navbar nav a:hover {
+    color: var(--gold);
+}
+
+.nav-btn {
+    padding: 13px 22px;
+
+    border: 1px solid var(--gold);
+
+    font-size: 10px;
+    letter-spacing: 1.5px;
+
+    transition: 0.3s ease;
+}
+
+.nav-btn:hover {
+    background: var(--gold);
+    color: #11100e;
+}
+
+
+/* ================================
+   HERO
+================================ */
+
+.hero {
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    padding: 150px 8vw;
+
+    background-image: url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=2000&q=90");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(10,9,8,0.9) 0%,
+            rgba(10,9,8,0.55) 45%,
+            rgba(10,9,8,0.25) 100%
+        );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 800px;
+
+    animation: heroReveal 1.2s ease forwards;
+}
+
+.eyebrow {
+    color: var(--gold);
+
+    font-size: 11px;
+    letter-spacing: 4px;
+
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(60px, 8vw, 125px);
+
+    line-height: 0.82;
+
+    font-weight: 500;
+
+    letter-spacing: -3px;
+}
+
+.hero h1 span {
+    color: transparent;
+
+    -webkit-text-stroke: 1px var(--cream);
+}
+
+.hero-text {
+    max-width: 500px;
+
+    color: #d0cbc2;
+
+    line-height: 1.8;
+
+    margin-top: 35px;
+
+    font-size: 14px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+
+    margin-top: 40px;
+}
+
+.primary-btn,
+.secondary-btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 17px 28px;
+
+    font-size: 10px;
+    letter-spacing: 2px;
+
+    transition: 0.35s ease;
+}
+
+.primary-btn {
+    background: var(--gold);
+    color: #11100e;
+}
+
+.primary-btn:hover {
+    transform: translateY(-4px);
+    background: #e0c58c;
+}
+
+.secondary-btn {
+    border: 1px solid rgba(255,255,255,0.5);
+}
+
+.secondary-btn:hover {
+    background: var(--cream);
+    color: #11100e;
+
+    transform: translateY(-4px);
+}
+
+.scroll-indicator {
+    position: absolute;
+
+    bottom: 35px;
+    right: 7vw;
+
+    font-size: 9px;
+    letter-spacing: 2px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: #c4beb5;
+}
+
+.scroll-indicator span {
+    width: 35px;
+    height: 1px;
+
+    background: var(--gold);
+
+    animation: scrollLine 1.5s ease-in-out infinite;
+}
+
+
+/* ================================
+   INTRO
+================================ */
+
+.intro {
+    padding: 150px 8vw;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 100px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.section-number {
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: var(--gold);
+
+    margin-bottom: 30px;
+}
+
+.intro h2,
+.section-heading h2,
+.chef-content h2,
+.reservation h2 {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(55px, 6vw, 90px);
+
+    line-height: 0.85;
+
+    font-weight: 500;
+
+    letter-spacing: -2px;
+}
+
+.intro h2 em,
+.section-heading h2 em,
+.chef-content h2 em,
+.reservation h2 em {
+    color: var(--gold);
+    font-style: italic;
+}
+
+.intro-right {
+    padding-top: 50px;
+}
+
+.intro-right p {
+    color: var(--muted);
+
+    font-size: 15px;
+
+    line-height: 1.9;
+
+    max-width: 520px;
+
+    margin-bottom: 25px;
+}
+
+.text-link {
+    display: inline-block;
+
+    margin-top: 20px;
+
+    color: var(--cream);
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    border-bottom: 1px solid var(--gold);
+
+    padding-bottom: 8px;
+
+    transition: 0.3s ease;
+}
+
+.text-link:hover {
+    color: var(--gold);
+}
+
+
+/* ================================
+   MENU
+================================ */
+
+.menu-section {
+    padding: 150px 8vw;
+}
+
+.section-heading {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: flex-end;
+
+    margin-bottom: 70px;
+}
+
+.heading-description {
+    max-width: 350px;
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+.menu-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 60px 35px;
+}
+
+.menu-card {
+    overflow: hidden;
+}
+
+.menu-image {
+    height: 430px;
+
+    background-size: cover;
+    background-position: center;
+
+    transition: transform 0.8s cubic-bezier(.2,.7,.2,1);
+}
+
+.menu-card:hover .menu-image {
+    transform: scale(1.05);
+}
+
+.image-one {
+    background-image: url("https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=85");
+}
+
+.image-two {
+    background-image: url("https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=1000&q=85");
+}
+
+.image-three {
+    background-image: url("https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=1000&q=85");
+}
+
+.image-four {
+    background-image: url("https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=1000&q=85");
+}
+
+.menu-info {
+    padding-top: 20px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--border);
+
+    padding-bottom: 20px;
+}
+
+.menu-info h3 {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 27px;
+
+    font-weight: 500;
+}
+
+.menu-info p {
+    color: var(--muted);
+
+    font-size: 11px;
+
+    margin-top: 7px;
+}
+
+.menu-info span {
+    color: var(--gold);
+
+    font-size: 13px;
+}
+
+.menu-button {
+    display: block;
+
+    width: max-content;
+
+    margin: 70px auto 0;
+
+    padding: 16px 28px;
+
+    border: 1px solid var(--gold);
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    transition: 0.3s ease;
+}
+
+.menu-button:hover {
+    background: var(--gold);
+    color: #11100e;
+}
+
+
+/* ================================
+   CHEF
+================================ */
+
+.chef-section {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    min-height: 700px;
+
+    background: #171512;
+}
+
+.chef-image {
+    min-height: 650px;
+
+    background-image: url("https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=1200&q=90");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.chef-content {
+    padding: 120px 8vw;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.chef-content > p:not(.section-number) {
+    color: var(--muted);
+
+    max-width: 470px;
+
+    line-height: 1.9;
+
+    font-size: 14px;
+
+    margin-top: 30px;
+}
+
+.chef-signature {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 30px;
+
+    font-style: italic;
+
+    color: var(--gold);
+
+    margin-top: 45px;
+}
+
+
+/* ================================
+   GALLERY
+================================ */
+
+.gallery-section {
+    padding: 150px 8vw;
+}
+
+.gallery-grid {
+    display: grid;
+
+    grid-template-columns: 1.3fr 1fr 1fr;
+
+    grid-auto-rows: 280px;
+
+    gap: 15px;
+}
+
+.gallery-item {
+    background-size: cover;
+    background-position: center;
+
+    overflow: hidden;
+
+    transition: transform 0.6s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(0.98);
+}
+
+.gallery-large {
+    grid-row: span 2;
+}
+
+.gallery-one {
+    background-image: url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=85");
+}
+
+.gallery-two {
+    background-image: url("https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=900&q=85");
+}
+
+.gallery-three {
+    background-image: url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=85");
+}
+
+.gallery-four {
+    background-image: url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=900&q=85");
+}
+
+.gallery-five {
+    background-image: url("https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1200&q=85");
+}
+
+
+/* ================================
+   RESERVATION
+================================ */
+
+.reservation {
+    min-height: 650px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 100px 8vw;
+
+    background-image:
+        linear-gradient(
+            rgba(12,11,9,0.82),
+            rgba(12,11,9,0.82)
+        ),
+        url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=2000&q=90");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.reservation-inner {
+    max-width: 800px;
+}
+
+.reservation h2 {
+    font-size: clamp(65px, 8vw, 115px);
+}
+
+.reservation-inner > p:not(.section-number) {
+    color: #c4beb5;
+
+    max-width: 520px;
+
+    margin: 30px auto;
+
+    line-height: 1.8;
+
+    font-size: 14px;
+}
+
+.reservation-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-top: 40px;
+}
+
+
+/* ================================
+   CONTACT
+================================ */
+
+.contact {
+    padding: 90px 8vw;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 50px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.contact-block h3 {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 35px;
+
+    margin-bottom: 15px;
+}
+
+.contact-block p,
+.contact-block a {
+    color: var(--muted);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+.contact-block a {
+    transition: 0.3s ease;
+}
+
+.contact-block a:hover {
+    color: var(--gold);
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+footer {
+    padding: 35px 8vw;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+.footer-logo {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 30px;
+}
+
+footer p,
+.socials a {
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+    color: #817b73;
+}
+
+.socials {
+    display: flex;
+
+    gap: 20px;
+}
+
+.socials a:hover {
+    color: var(--gold);
+}
+
+
+/* ================================
+   ANIMATIONS
+================================ */
+
+@keyframes navReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes heroReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes scrollLine {
+
+    0% {
+        width: 15px;
+        opacity: 0.4;
+    }
+
+    50% {
+        width: 40px;
+        opacity: 1;
+    }
+
+    100% {
+        width: 15px;
+        opacity: 0.4;
+    }
+
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 1000px) {
+
+    .navbar nav {
+        display: none;
+    }
+
+    .navbar {
+        padding: 0 5vw;
+    }
+
+    .hero {
+        padding: 140px 7vw;
+    }
+
+    .intro {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .intro-right {
+        padding-top: 20px;
+    }
+
+    .section-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+    }
+
+    .chef-section {
+        grid-template-columns: 1fr;
+    }
+
+    .chef-image {
+        min-height: 550px;
+    }
+
+    .chef-content {
+        padding: 90px 8vw;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .gallery-large {
+        grid-row: span 1;
+    }
+
+    .contact {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .navbar {
+        height: 75px;
+    }
+
+    .nav-btn {
+        display: none;
+    }
+
+    .logo {
+        font-size: 27px;
+    }
+
+    .hero {
+        min-height: 100svh;
+
+        padding: 120px 6vw 80px;
+
+        background-position: 65% center;
+    }
+
+    .hero h1 {
+        font-size: clamp(55px, 16vw, 85px);
+
+        letter-spacing: -2px;
+    }
+
+    .hero-text {
+        font-size: 13px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+        width: 100%;
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+
+    .intro,
+    .menu-section,
+    .gallery-section {
+        padding: 100px 6vw;
+    }
+
+    .intro h2,
+    .section-heading h2,
+    .chef-content h2 {
+        font-size: 60px;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .menu-image {
+        height: 350px;
+    }
+
+    .chef-image {
+        min-height: 450px;
+    }
+
+    .chef-content {
+        padding: 80px 6vw;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+
+        grid-auto-rows: 300px;
+    }
+
+    .gallery-large {
+        grid-row: span 1;
+    }
+
+    .reservation {
+        min-height: 600px;
+
+        padding: 80px 6vw;
+    }
+
+    .reservation h2 {
+        font-size: 65px;
+    }
+
+    .reservation-buttons {
+        flex-direction: column;
+    }
+
+    .contact {
+        grid-template-columns: 1fr;
+
+        padding: 80px 6vw;
+    }
+
+    footer {
+        padding: 30px 6vw;
+
+        flex-direction: column;
+
+        gap: 20px;
+
+        text-align: center;
+    }
+
+}
